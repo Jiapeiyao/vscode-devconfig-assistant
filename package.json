@@ -1,0 +1,67 @@
+{
+	"name": "vscode-devconfig-assistant",
+	"displayName": "DevConfig Assistant",
+	"description": "Make it convenient to manage development environment configurations.",
+	"version": "1.0.0",
+	"publisher": "",
+	"author": {
+		"name": "Jiapeiyao",
+		"email": "charlesyjp@gmail.com"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"bugs": {
+		"url": "https://github.com/Jiapeiyao/vscode-devconfig-assistant/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Jiapeiyao/vscode-devconfig-assistant.git"
+	},
+	"main": "dist/extension.js",
+	"icon": "images/dep.png",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"npm",
+		"yarn"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"viewsContainers": {
+		"activitybar": [
+			{
+				"id": "devconfig",
+				"title": "DevConfig Assistant",
+				"icon": "images/dep.svg"
+			}
+		]
+	},
+	"views": {
+		"devconfig": [
+			{
+				"id": "devconfig.views.npm",
+				"name": "NPM",
+				"when": "*",
+				"contextualTitle": "DevConfig - NPM",
+				"icon": "images/dep.svg",
+				"visibility": "visible"
+			}
+		]
+	},
+	"scripts": {
+		"dev": "webpack --config webpack.config.js --mode development",
+		"prepublish": "webpack --config webpack.config.js --mode production"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.60.0",
+		"eslint": "^7.32.0",
+		"ts-loader": "^9.2.5",
+		"typescript": "^4.4.3",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0"
+	}
+}
