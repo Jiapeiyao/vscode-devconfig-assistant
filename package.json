@@ -3,7 +3,7 @@
 	"displayName": "DevConfig Assistant",
 	"description": "Make it convenient to manage development environment configurations.",
 	"version": "1.0.0",
-	"publisher": "",
+	"publisher": "Jiapeiyao",
 	"author": {
 		"name": "Jiapeiyao",
 		"email": "charlesyjp@gmail.com"
@@ -31,26 +31,48 @@
 	"activationEvents": [
 		"*"
 	],
-	"viewsContainers": {
-		"activitybar": [
+	"contributes": {
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "devconfig",
+					"title": "DevConfig Assistant",
+					"icon": "images/dep.svg"
+				}
+			]
+		},
+		"views": {
+			"devconfig": [
+				{
+					"id": "devconfig.views.npmrc",
+					"name": "NPM",
+					"contextualTitle": "NPM Config",
+					"icon": "images/dep.svg"
+				},
+				{
+					"id": "devconfig.views.yarnrc",
+					"name": "YARN",
+					"contextualTitle": "yarn Config",
+					"icon": "images/dep.svg"
+				}
+			]
+		},
+		"commands": [
 			{
-				"id": "devconfig",
-				"title": "DevConfig Assistant",
-				"icon": "images/dep.svg"
+				"command": "devconfig.commands.npmrc.addVariable",
+				"category": "devconfig",
+				"title": "Add an NPM Config Variable",
+				"icon": "$(add)"
 			}
-		]
-	},
-	"views": {
-		"devconfig": [
-			{
-				"id": "devconfig.views.npm",
-				"name": "NPM",
-				"when": "*",
-				"contextualTitle": "DevConfig - NPM",
-				"icon": "images/dep.svg",
-				"visibility": "visible"
-			}
-		]
+		],
+		"menus": {
+			"view/title": [
+				{
+					"command": "devconfig.commands.npmrc.addVariable",
+					"group": "navigation@1"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"dev": "webpack --config webpack.config.js --mode development",
